@@ -9,20 +9,13 @@ on:
       k8s_version:
         description: With Kubernetes version
         required: false
-
+  workflow_run:
+    workflows: ["Build Image"]
+    types:
+      - completed
 jobs:
-  wait-for-image-build:
-    name: Wait for image build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: kyma-project/lifecycle-manager/.github/actions/wait-for-image-build@main
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          statusName: compute-tag
-
   e2e-integration:
     name: E2E
-    needs: wait-for-image-build
     strategy:
       matrix:
         e2e-test:
