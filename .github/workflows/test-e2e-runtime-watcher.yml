@@ -18,7 +18,7 @@ jobs:
       - uses: kyma-project/lifecycle-manager/.github/actions/wait-for-image-build@main
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          statusName: pull-runtime-watcher-img-build
+          statusName: Build Runtime Watcher
 
   e2e-integration:
     name: E2E
