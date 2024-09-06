@@ -36,8 +36,8 @@ jobs:
           fi
       - name: Echo the tag
         run: echo ${{ steps.get_tag.outputs.tag }}
-      - name: Fail the build
-        run: exit 1
+#      - name: Fail the build
+#        run: exit 1
 #  build-image:
 #    needs: compute-tag
 #    uses: kyma-project/test-infra/.github/workflows/image-builder.yml@main
