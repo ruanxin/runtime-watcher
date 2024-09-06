@@ -1,13 +1,13 @@
 name: TestSuite E2E
 
 on:
+  pull_request:
+    branches:
+      - '**'
   workflow_run:
     workflows: ["Build Image"]
     types:
       - completed
-#  pull_request:
-#    branches:
-#      - '**'
 #    branches-ignore:
 #      - main
 jobs:
