@@ -6,7 +6,7 @@ on:
 jobs:
   e2e-integration:
     name: E2E
-    uses: ./build-image.yml@main
+    uses: ./.github/workflows/build-image.yml@main
     strategy:
       matrix:
         e2e-test:
