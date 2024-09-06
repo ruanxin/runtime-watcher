@@ -4,9 +4,12 @@ on:
   pull_request_target:
     types: [ opened, edited, synchronize, reopened, ready_for_review ]
 jobs:
+  build-image:
+    name: Build Image
+    uses: ./.github/workflows/build-image.yml
   e2e-integration:
     name: E2E
-    uses: ./.github/workflows/build-image.yml
+    needs: build-image
     strategy:
       matrix:
         e2e-test:
